@@ -20,6 +20,7 @@ export function GoButton({ isRunning, onClick }: GoButtonProps) {
       <Button
         onClick={onClick}
         disabled={isRunning}
+<<<<<<< HEAD
         className={`h-40 w-40 rounded-full border-4 text-2xl font-bold tracking-widest transition-all duration-500 shadow-xl
           ${isRunning 
             ? "border-primary bg-primary/10 text-primary shadow-[0_0_50px_rgba(var(--primary),0.2)] animate-pulse" 
@@ -28,6 +29,46 @@ export function GoButton({ isRunning, onClick }: GoButtonProps) {
       >
         <span className="relative z-10">
           {isRunning ? "TESTING" : "GO"}
+=======
+        className="relative group flex items-center justify-center w-44 h-44 rounded-full"
+      >
+        {/* OUTER GLOW STROKE */}
+        <span
+          className="
+          absolute -inset-6 rounded-full
+          border border-primary/20
+          opacity-0
+          scale-95
+          transition-all duration-500
+          group-hover:opacity-100
+          group-hover:scale-100
+          group-hover:shadow-[0_0_40px_rgba(59,130,246,0.55)]
+        "
+        />
+
+        <span
+          className="
+          absolute inset-0 rounded-full
+          border border-primary/40
+          transition-opacity duration-300
+          group-hover:opacity-80
+        "
+        />
+
+        <span
+          className="
+          relative z-10 flex items-center justify-center
+          w-full h-full rounded-full
+          from-primary/90 to-primary/70
+          text-xl font-semibold tracking-wide
+          shadow-lg
+          transition-transform duration-300
+          group-hover:scale-[1.04]
+          active:scale-95
+        "
+        >
+          GO
+>>>>>>> master
         </span>
       </Button>
       
