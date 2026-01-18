@@ -59,7 +59,9 @@ export default function Home() {
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 dark:bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-500/10 dark:bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <Header progress={progress} />
+      {/* <div className="absolute top-0 left-0 w-full z-50"> */}
+        <Header progress={progress} />
+      {/* </div> */}
 
       <div className="mt-2 px-3 md:px-6 z-10">
         <ServerBar />

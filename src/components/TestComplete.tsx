@@ -28,7 +28,7 @@ export function TestComplete({ download, onRetry }: TestCompleteProps) {
   return (
       <div className="flex flex-col items-center justify-center text-center gap-6 py-24">
           
-      <h2 className="text-3xl md:text-4xl font-semibold text-white">{title}</h2>
+      <h2 className="text-3xl md:text-4xl font-semibold">{title}</h2>
 
       <p className="text-sm md:text-base text-muted-foreground max-w-sm">
         {subtitle}

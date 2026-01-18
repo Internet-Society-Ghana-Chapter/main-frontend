@@ -7,10 +7,9 @@ type SpeedMeterProps = {
   upload: string;
 };
 
-
 const centerX = 250;
 const centerY = 250;
-const radius = 220; // OUTSIDE the arc (important!)
+const radius = 220;
 
 const scaleLabels = [
   { value: "0", angle: -180 },
@@ -30,7 +29,6 @@ const getPoint = (angle: number) => {
   };
 };
 
-
 export function SpeedMeter({
   stage,
   progress,
@@ -41,16 +39,14 @@ export function SpeedMeter({
     stage === "download"
       ? Number(download || 0)
       : stage === "upload"
-      ? Number(upload || 0)
-      : 0;
+        ? Number(upload || 0)
+        : 0;
 
   const label = stage.toUpperCase();
 
-  /* ---------- ARC ---------- */
   const arcLength = 565;
   const arcOffset = arcLength - (progress / 100) * arcLength;
 
-  /* ---------- GRAPH ---------- */
   const graphPath = useMemo(() => {
     const baseY = 90;
     const amplitude = Math.min(value * 0.7, 65);
@@ -67,8 +63,9 @@ export function SpeedMeter({
   }, [value]);
 
   return (
-    <div className="relative w-130 h-90 z-10">
-      {/* ARC */}
+    
+    <div className="relative w-full md:w-[520px] aspect-[13/9] mx-auto z-10">
+      {/* ARC SVG */}
       <svg viewBox="0 0 500 300" className="w-full h-full">
         <defs>
           <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -122,10 +119,8 @@ export function SpeedMeter({
           Mbps
         </text>
 
-        {/* ARC SCALE NUMBERS */}
         {scaleLabels.map((label) => {
           const { x, y } = getPoint(label.angle);
-
           return (
             <text
               key={label.value}
@@ -143,7 +138,7 @@ export function SpeedMeter({
         })}
       </svg>
 
-      {/* GRAPH */}
+      {/* GRAPH SVG */}
       <svg
         viewBox="0 0 520 120"
         className="absolute bottom-4 left-0 w-full z-20"
